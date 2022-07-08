@@ -1,0 +1,31 @@
+/* MODIFICATIONS */
+.btn {
+    width: 100%;
+}
+
+form button.btn {
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+}
+
+form button.btn i.left {
+    margin: 0 20px;
+}
+
+table > tbody > tr:nth-child(2n) {
+    background-color: #c2e8e4;
+}
+/* END MODIFICATIONS */
+
+.center-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bold-text {
+    font-weight: bold;
+}

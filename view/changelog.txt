@@ -1,0 +1,14 @@
+index.php
+- restructured and moved view components to view dir
+
+form.php renamed to controller.php
+- Changed if statements to switch statements
+- Cleaned up
+- Added comments
+
+controller.php
+- Cleaned up
+
+db_functions.php replaced with db_class.php
+- Created OOP approach
+- later -> split db_class in 2 files to split database and usermanager to own classes
