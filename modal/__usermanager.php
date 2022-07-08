@@ -6,7 +6,7 @@ class UserManager extends Database {
     UserManager class holds all functionalities of the UserManager.
     */
 
-    public function __contrust() {
+    public function __construct() {
         parent::__construct();
     }
 
