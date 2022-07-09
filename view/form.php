@@ -1,5 +1,3 @@
-<?php $connected=null; ?>
-
 <div class="row">
     <form id="signup" class="col s12" action="index.php" method="POST">
         <!-- FORM INPUT -->

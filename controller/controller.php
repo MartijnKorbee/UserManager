@@ -2,36 +2,37 @@
 
 use modal\UserManager\UserManager;
 
-$UserManager = new UserManager();
+// Initial variables
+$connected = false;
+$users = null;
 
-// // Initiates DB connection and UserManager
-// try {
-//     $UserManager = new UserManager();
+// Initiates DB connection and UserManager
+try {
+    $UserManager = new UserManager();
 
-//     // Set connected to true -> Used to enable form
-//     $connected = true;
+    // Set connected to true -> Used to enable form
+    $connected = true;
 
-// } catch (Exception $error) {
-//     $datetime = new \DateTime('NOW');
-//     $datetime = $datetime->format('c');
-//     $errorMessage = $error->getMessage();
-//     $errorFile = $error->getFile() . ":" . $error->getLine();
+} catch (\Exception $error) {
+    $datetime = new \DateTime('NOW');
+    $datetime = $datetime->format('c');
+    $errorMessage = $error->getMessage();
+    $errorFile = $error->getFile() . ":" . $error->getLine();
     
-//     $error=<<<ERROR
-//     $datetime
-//     $errorMessage
-//     $errorFile\n
-//     ERROR;
+    $error=<<<ERROR
+    $datetime
+    $errorMessage
+    $errorFile\n
+    ERROR;
     
-//     // Log error to connection log
-//     \error_log($error, 3, 'connection.log');
+    // Log error to connection log
+    \error_log($error, 3, 'connection.log');
 
-//     // Display error message to user
-//     $displayMessage = true;
-//     $success = false;
-//     $message = "Something went wrong when connecting to the database.";
-// }
-
+    // Display error message to user
+    $displayMessage = true;
+    $success = false;
+    $message = "Something went wrong when connecting to the database.";
+}
 
 if ( isset($_POST['action']) ) {
     
