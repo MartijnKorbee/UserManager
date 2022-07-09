@@ -1,6 +1,6 @@
 <?php 
-$cardColor = ($success) ? "green" : "red";
 if ( $displayMessage ) { ?>          
+    <?php $cardColor = ($success) ? "green" : "red"; ?>
     <div class="row">
         <div class="col s12">
             <div class="card <?php print $cardColor ?>">
