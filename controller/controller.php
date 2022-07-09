@@ -105,6 +105,7 @@ if ( isset($_POST['action']) ) {
     }
     // Show error if username and password are blank
     else {
+        $succes = false;
         $displayMessage = true;
         $message = "Enter a username and password.";
     }

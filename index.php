@@ -6,6 +6,7 @@ $dotenv->load();
 // Initial variables
 $users=null; #Controls display users in view/display_users.php
 $displayMessage=null; #Controls the display of message in view/message.php
+$success=null; #Controls message color
 
 require_once 'modal/database.php';
 require_once 'modal/usermanager.php';
