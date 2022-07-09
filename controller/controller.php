@@ -1,5 +1,6 @@
 <?php
-require_once 'modal/__usermanager.php';
+
+use modal\UserManager\UserManager;
 
 // Initiates DB connection and UserManager
 $UserManager = new UserManager();

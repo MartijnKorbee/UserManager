@@ -1,5 +1,8 @@
 <?php
-require_once 'modal/__database.php';
+
+namespace modal\UserManager;
+
+use modal\Database\Database;
 
 class UserManager extends Database {
     /*
