@@ -3,6 +3,10 @@ require_once 'vendor/autoload.php';
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+// Initial variables
+$users=null; #Controls display users in view/display_users.php
+$displayMessage=null; #Controls the display of message in view/message.php
+
 require_once 'modal/database.php';
 require_once 'modal/usermanager.php';
 require_once 'controller/controller.php';
