@@ -9,10 +9,6 @@ class UserManager extends Database {
     UserManager class holds all functionalities of the UserManager.
     */
 
-    public function __construct() {
-        parent::__construct();
-    }
-
     /* userExists
     Protected method to check if user exists.
     Used for CRUD methods on single user. 

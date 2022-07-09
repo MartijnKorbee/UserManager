@@ -2,18 +2,17 @@
 
 use modal\UserManager\UserManager;
 
-// Initial variables
-$connected = false;
-$users = null;
-
 // Initiates DB connection and UserManager
 try {
     $UserManager = new UserManager();
-
-    // Set connected to true -> Used to enable form
+    
+    // Set connected -> Form enabled
     $connected = true;
-
+    
 } catch (\Exception $error) {
+    // Set connected -> Form disabled
+    $connected = false;
+
     $datetime = new \DateTime('NOW');
     $datetime = $datetime->format('c');
     $errorMessage = $error->getMessage();

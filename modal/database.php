@@ -9,10 +9,10 @@ class Database extends \mysqli {
     public function __construct() {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         parent::__construct(
-            $_ENV['SERVER'],
-            $_ENV['USER'],
-            $_ENV['PASSWORD'],
-            $_ENV['DATABASE']
+            $_ENV['DB_SERVER'],
+            $_ENV['DB_USER'],
+            $_ENV['DB_PASSWORD'],
+            $_ENV['DB_NAME']
         );
     }
 }    
