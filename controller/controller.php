@@ -33,7 +33,7 @@ try {
     $message = "Something went wrong when connecting to the database.";
 }
 
-if ( isset($_POST['action']) ) {
+if ( isset($_POST['action']) && $connected ) {
     
     // Retrieve POST data
     $action = $_POST['action'];
