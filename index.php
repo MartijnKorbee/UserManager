@@ -43,7 +43,7 @@ $connected = true;
         <div class="row" style="display: flex;">
             <div class="col s12 teal lighten-5" style="margin: auto; padding: 20px; max-width: 600px;">
                 <!-- DISPLAY MESSAGES -->
-                <?php include 'view/messages.php'; ?>
+                <?php include 'view/messages.html'; ?>
                 <!-- END DISPLAY MESSAGES -->
                 
                 <!-- FORM -->
@@ -54,7 +54,7 @@ $connected = true;
         
         
         <!-- DISPLAY READ RESULTS -->
-        <?php include 'view/display_users.php'; ?>
+        <?php include 'view/display_users.html'; ?>
         <!-- DISPLAY READ RESULTS -->
     </div>
 
