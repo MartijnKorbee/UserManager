@@ -8,9 +8,7 @@ $users=null; #Controls the display of users in view/display_users.php
 $displayMessage=null; #Controls the display of messages in view/message.php
 $success=null; #Controls message color
 
-require_once 'modal/database.php';
-require_once 'modal/usermanager.php';
-require_once 'controller/controller.php';
+$connected = true;
 
 ?>
 
@@ -33,6 +31,10 @@ require_once 'controller/controller.php';
     
     <!-- Custome stylesheet -->
     <link rel="stylesheet" href="styles/style.css">
+
+
+    <!-- Load App.js -->
+    <script type="module" src="scripts/app.js"></script>
 </head>
 
 <body>
@@ -55,7 +57,7 @@ require_once 'controller/controller.php';
         <?php include 'view/display_users.php'; ?>
         <!-- DISPLAY READ RESULTS -->
     </div>
-    
+
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 

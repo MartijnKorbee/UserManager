@@ -17,6 +17,11 @@ form button.btn i.left {
 table > tbody > tr:nth-child(2n) {
     background-color: #c2e8e4;
 }
+
+table > tbody > tr td#password {
+    word-wrap: anywhere;
+    text-align: left;
+}
 /* END MODIFICATIONS */
 
 .center-container {

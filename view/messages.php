@@ -1,13 +1,12 @@
-<?php 
-if ( $displayMessage ) { ?>          
-    <?php $cardColor = ($success) ? "green" : "red"; ?>
-    <div class="row">
+<template name="messages">
+    <div class="row message-row scale-transition">
         <div class="col s12">
-            <div class="card <?php print $cardColor ?>">
+            <div class="card">
                 <div class="card-content white-text" style="padding: 12px 24px;">
-                    <?php print $message; ?>
+                    <!-- MESSAGE HERE -->
+                    <span class="message__text"></span>
                 </div>
             </div>
         </div>
     </div>
-<?php } ?>
+</template>
