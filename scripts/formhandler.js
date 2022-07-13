@@ -19,7 +19,6 @@ export class FormHandler {
         })
         .then(res => res.json())
         .then(data => {
-
             // Call viewcontroller
             const Controller = new ViewController(data, this.action);
 

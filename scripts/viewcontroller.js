@@ -38,7 +38,7 @@ export class ViewController {
     */
     showMessage() {
         // Create message object
-        const Message = new Messages(succes, message);
+        const Message = new Messages(this.succes, this.message);
         // Insert message
         Message.insertMessage();
         // Hide
