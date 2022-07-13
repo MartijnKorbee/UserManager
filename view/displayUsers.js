@@ -21,7 +21,7 @@ userTemplate.innerHTML = `
         </table>
     </div>
     </div>
-`
+`;
 
 function displayUsers(users) {
     
