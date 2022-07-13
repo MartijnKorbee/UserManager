@@ -28,10 +28,20 @@ try {
     // Log error to connection log
     \error_log($error, 3, 'connection.log');
 
-    // Display error message to user
-    $displayMessage = true;
+    // return error message
     $success = false;
+    $displayMessage = true;
     $message = "Something went wrong when connecting to the database.";
+
+    $result = [
+        'succes' => false,
+        'displayMessage' => true,
+        'message' => $message
+    ];
+
+    print $result;
+
+    exit;
 }
 
 if ( isset($_POST['action']) && $connected ) {
