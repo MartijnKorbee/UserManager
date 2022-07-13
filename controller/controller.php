@@ -171,18 +171,22 @@ if ( isset($_POST['action']) && $connected ) {
     }
     // Show error if username and password are blank
     else {
-        $succes = false;
-        $displayMessage = true;
-        $message = "Enter a username and password.";
-
         $result = json_encode([
-            'succes' => $succes,
-            'displayMessage' => $displayMessage,
-            'message' => $message
+            'succes' => false,
+            'displayMessage' => true,
+            'message' => "Enter a username and password."
         ]);
 
         print $result;
     }
-};
+}
+// Return message if not connected
+else {
+    $result = json_encode([
+        'succes' => false,
+        'displayMessage' => true,
+        'message' => "Not connected to database."
+    ]);
+}
 
 ?>
