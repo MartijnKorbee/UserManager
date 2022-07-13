@@ -29,7 +29,7 @@ try {
     ERROR;
     
     // Log error to connection log
-    \error_log($error, 3, 'connection.log');
+    \error_log($error, 3, '../log/connection.log');
 
     // return error message
     $success = false;

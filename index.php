@@ -1,10 +1,3 @@
-<?php
-require_once 'vendor/autoload.php';
-$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +17,6 @@ $dotenv->load();
     
     <!-- Custome stylesheet -->
     <link rel="stylesheet" href="styles/style.css">
-
 
     <!-- Load App.js -->
     <script type="module" src="scripts/app.js"></script>
