@@ -4,7 +4,7 @@ const FormCapture = new FormHandler();
 
 addFormEventListener();
 
-function addFormEventListener(event) {
+function addFormEventListener() {
     document.querySelector("form#signup").addEventListener('submit', e => {
         // Prevent default form action
         e.preventDefault();
