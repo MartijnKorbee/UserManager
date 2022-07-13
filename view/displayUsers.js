@@ -26,13 +26,13 @@ userTemplate.innerHTML = `
 function displayUsers(users) {
     
     // Clone template
-    let newNode = userTemplate.content.cloneNode(true);
+    const newNode = userTemplate.content.cloneNode(true);
 
     // Insert user rows in user table
     users.forEach((user) => {
         
         // Create user row HTML
-        let userRow = `
+        const userRow = `
         <tr>
             <td>${user.id}</td>
             <td>${user.username}</td>

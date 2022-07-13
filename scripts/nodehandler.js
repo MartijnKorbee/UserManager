@@ -1,18 +1,34 @@
-function insertNode(parentNode, newNode, currentNode, position=null) {
-    // check if message node exists and replace
-    if ( currentNode ) {
-        parentNode.replaceChild(newNode, currentNode);
-    } else {
-        switch (position) {
-            case 'first':
-                parentNode.insertBefore(newNode, parentNode.firstChild);
-            break;
+/* NodeHandler
+Class responsible for inserting, updating or removing DOM nodes
+*/
+export class NodeHandler {
 
-            default:
-                parentNode.appendChild(newNode);
-            break;
-        }
+    constructor(parentNode, newNode, currentNode) {
+        this.parentNode = document.querySelector(parentNode);
+        this.newNode = newNode;
+        this.currentNode = currentNode;
     }
+
+    method
+        /* insertNode
+        Inserts node in to DOM takes arg position to insert as first element.
+        */
+        insertNode(nodePosition=null) {
+            if ( this.currentNode) {
+                this.parentNode.replaceChild(this.newNode, this.currentNode);
+            } else {
+                switch (this.nodePosition) {
+                    case 'first':
+                        this.parentNode.insertBefore(this.newNode, this.parentNode.firstChild);
+                    break;
+                
+                    default:
+                        this.parentNode.appendChild(this.newNode);
+                    break;
+                }
+            }
+        }
+
 }
 
 // Get node element 
