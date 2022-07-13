@@ -3,13 +3,6 @@ require_once 'vendor/autoload.php';
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-// Initial variables
-$users=null; #Controls the display of users in view/display_users.php
-$displayMessage=null; #Controls the display of messages in view/message.php
-$success=null; #Controls message color
-
-$connected = true;
-
 ?>
 
 <!DOCTYPE html>
