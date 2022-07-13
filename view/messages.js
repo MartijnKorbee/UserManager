@@ -1,9 +1,21 @@
-import { getNode, insertNode, hideNode, removeNode } from "./nodehandler.js";
+import { getNode, insertNode, hideNode, removeNode } from "../scripts/nodehandler.js";
+
+// Create template element
+const  msgTemplate = document.createElement('template');
+// Insert innerHTML
+msgTemplate.innerHTML = `
+    <div class="row message-row scale-transition">
+    <div class="col s12">
+        <div class="card">
+            <div class="card-content white-text" style="padding: 12px 24px;">
+                <span class="message__text"></span>
+            </div>
+        </div>
+    </div>
+    </div>
+`;
 
 function displayMessage(message, succes) {
-    
-    // Get messages template
-    let msgTemplate = document.querySelector("template[name='messages']");
 
     // Clone template
     let newNode = msgTemplate.content.cloneNode(true);
