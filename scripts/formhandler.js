@@ -1,17 +1,17 @@
-import { displayMessage } from "./messages.js";
-import { displayUsers, removeUsers } from "./display_users.js";
-import { getNode, removeNode } from "./nodehandler.js";
+import { ViewController } from "./viewcontroller.js";
 
 export class FormHandler {
 
-    postData(e) {
-        // Hides users if action is not a read user action
-        removeUsers(e.submitter.value);
-
+    constructor(action, form) {
+        this.action = action;
+        this.form = form;
+    }
+    
+    postData() {
         // Create new FormData object
-        const formData = new FormData(e.target);
+        const formData = new FormData(this.form);
         // Append form action from button
-        formData.append('action', e.submitter.value);
+        formData.append('action', this.action);
 
         fetch('/controller/controller.php', {
             method: 'POST',
@@ -20,19 +20,10 @@ export class FormHandler {
         .then(res => res.json())
         .then(data => {
 
-            // Check for a message and call displayMessage
-            if ( data.displayMessage == true ) {
-                displayMessage(data.message, data.succes);
-            }
+            // Call viewcontroller
+            const Controller = new ViewController(data, this.action);
 
-            // Check for users and call displayUsers
-            if ( data.users ) {
-                displayUsers(data.users);
-            } 
-            // If authentication failed hide user display
-            else if (data.succes == false) {
-                removeUsers();
-            }
+            Controller.handleFormPost();
         })
     }
 }
