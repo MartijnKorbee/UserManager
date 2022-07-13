@@ -1,5 +1,4 @@
-import { DisplayUsers } from "../view/displayusers.js";
-import { Messages } from "../view/messages.js";
+import { ViewController } from "./viewcontroller.js";
 
 export class FormHandler {
 
@@ -21,31 +20,10 @@ export class FormHandler {
         .then(res => res.json())
         .then(data => {
 
-            // Check for a message
-            if ( data.displayMessage == true ) {
-                // Create message object
-                const Message = new Messages(data.succes, data.message);
-                // Insert message
-                Message.insertMessage();
-                // Hide
-                Message.hideMessage(3000);
-            }
+            // Call viewcontroller
+            const Controller = new ViewController(data, this.action);
 
-            const Users = new DisplayUsers(data.users);
-
-            // Check if action is read user related
-            if ( this.action == 'readUser' || this.action == 'readAllUsers') {
-                if ( data.users && data.succes) {
-                    // Insert users table
-                    Users.insertUserTable(data.users);
-                } else {
-                    Users.deleteUserTable();
-                }
-            } 
-            // Delete user table the method checks if it exists
-            else {
-                Users.deleteUserTable();
-            }
+            Controller.handleFormPost();
         })
     }
 }
