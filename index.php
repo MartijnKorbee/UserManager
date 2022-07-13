@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="styles/style.css">
 
     <!-- Load App.js -->
-    <script type="module" src="scripts/app.js"></script>
+    <script type="module" src="app.js"></script>
 </head>
 
 <body>
@@ -34,11 +34,6 @@
                 <!-- END FORM -->
             </div>
         </div>
-        
-        
-        <!-- DISPLAY READ RESULTS -->
-        <?php include 'view/display_users.html'; ?>
-        <!-- DISPLAY READ RESULTS -->
     </div>
 
 <!-- Compiled and minified JavaScript -->

@@ -1,5 +1,5 @@
 import { displayMessage } from "../view/messages.js";
-import { displayUsers, removeUsers } from "./display_users.js";
+import { displayUsers, removeUsers } from "../view/displayUsers.js";
 import { getNode, removeNode } from "./nodehandler.js";
 
 export class FormHandler {
