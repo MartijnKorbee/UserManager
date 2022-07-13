@@ -1,4 +1,4 @@
-import { displayMessage } from "./messages.js";
+import { displayMessage } from "../view/messages.js";
 import { displayUsers, removeUsers } from "./display_users.js";
 import { getNode, removeNode } from "./nodehandler.js";
 

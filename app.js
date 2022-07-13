@@ -1,4 +1,4 @@
-import { FormHandler } from './formhandler.js';
+import { FormHandler } from './scripts/formhandler.js';
 
 const FormCapture = new FormHandler();
 
