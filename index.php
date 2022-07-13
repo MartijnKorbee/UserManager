@@ -47,7 +47,7 @@ $connected = true;
                 <!-- END DISPLAY MESSAGES -->
                 
                 <!-- FORM -->
-                <?php include 'view/form.php'; ?>
+                <?php include 'view/form.html'; ?>
                 <!-- END FORM -->
             </div>
         </div>
