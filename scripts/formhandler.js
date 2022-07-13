@@ -1,5 +1,5 @@
-import { displayMessage } from "../view/messages.js";
-import { displayUsers, removeUsers } from "../view/displayUsers.js";
+import { DisplayUsers } from "../view/displayusers.js";
+import { Messages } from "../view/messages.js";
 
 export class FormHandler {
 
@@ -8,36 +8,44 @@ export class FormHandler {
         this.form = form;
     }
     
-    methods 
-        postData(e) {
-            // Hides users if action is not a read user action
-            removeUsers(this.action);
+    postData() {
+        // Create new FormData object
+        const formData = new FormData(this.form);
+        // Append form action from button
+        formData.append('action', this.action);
 
-            // Create new FormData object
-            const formData = new FormData(this.form);
-            // Append form action from button
-            formData.append('action', this.action);
+        fetch('/controller/controller.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
 
-            fetch('/controller/controller.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(res => res.json())
-            .then(data => {
+            // Check for a message
+            if ( data.displayMessage == true ) {
+                // Create message object
+                const Message = new Messages(data.succes, data.message);
+                // Insert message
+                Message.insertMessage();
+                // Hide
+                Message.hideMessage(3000);
+            }
 
-                // Check for a message and call displayMessage
-                if ( data.displayMessage == true ) {
-                    displayMessage(data.message, data.succes);
+            const Users = new DisplayUsers(data.users);
+
+            // Check if action is read user related
+            if ( this.action == 'readUser' || this.action == 'readAllUsers') {
+                if ( data.users && data.succes) {
+                    // Insert users table
+                    Users.insertUserTable(data.users);
+                } else {
+                    Users.deleteUserTable();
                 }
-
-                // Check for users and call displayUsers
-                if ( data.users ) {
-                    displayUsers(data.users);
-                } 
-                // If authentication failed hide user display
-                else if (data.succes == false) {
-                    removeUsers();
-                }
-            })
-        }
+            } 
+            // Delete user table the method checks if it exists
+            else {
+                Users.deleteUserTable();
+            }
+        })
+    }
 }
