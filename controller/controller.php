@@ -36,11 +36,11 @@ try {
     $displayMessage = true;
     $message = "Something went wrong when connecting to the database.";
 
-    $result = [
+    $result = json_encode([
         'succes' => false,
         'displayMessage' => true,
         'message' => $message
-    ];
+    ]);
 
     print $result;
 
