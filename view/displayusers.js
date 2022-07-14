@@ -43,14 +43,14 @@ export class DisplayUsers extends NodeHandler {
 
         // Insert user rows in user table
         users.forEach((user) => {
-            
+
             // Create user row HTML
             const userRow = `
             <tr>
                 <td>${user.id}</td>
-                <td style="text-align:left;">${user.username}</td>
-                <td style="text-align:left;">${user.firstName}</td>
-                <td style="text-align:left;">${user.lastName}</td>
+                <td>${user.username}</td>
+                <td>${user.firstname}</td>
+                <td>${user.lastname}</td>
             </tr>
             `
         

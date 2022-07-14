@@ -19,9 +19,13 @@ export class ViewController {
     /*handleFormPost
     Handles the formpost and decides what to change in the view.
     */
-    handleFormPost() {
+    handleFormPost(form) {
         if ( this.displayMessage == true ) {
             this.showMessage(this.succes, this.message);
+        }
+
+        if ( this.succes ) {
+            this.resetForm(form);
         }
 
         const Users = new DisplayUsers(this.users);
@@ -43,6 +47,13 @@ export class ViewController {
         Message.insertMessage();
         // Hide
         Message.hideMessage(3000);
+    }
+
+    /*resetForm
+    If succes is true reset the form
+    */
+    resetForm(form) {
+        form.reset();
     }
 }
 

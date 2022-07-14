@@ -54,6 +54,8 @@ if ( isset($_POST['action']) && $connected ) {
     // Retieve and clean POST data
     $username = $UserManager->real_escape_string($_POST['username']);
     $password = $UserManager->real_escape_string($_POST['password']);
+    $firstname = $UserManager->real_escape_string($_POST['firstname']);
+    $lastname = $UserManager->real_escape_string($_POST['lastname']);
 
     // Handle all type actions
     if ( $action == 'readAllUsers' || $action == 'delAllUsers') {
@@ -104,7 +106,7 @@ if ( isset($_POST['action']) && $connected ) {
         switch ($action) {
             // CREATE USER
             case 'createUser':
-                [$success, $message] = $UserManager->createUser($username, $password);
+                [$success, $message] = $UserManager->createUser($username, $password, $firstname, $lastname);
 
                 $displayMessage = true;
 
@@ -135,7 +137,7 @@ if ( isset($_POST['action']) && $connected ) {
             
             // UPDATE USER
             case 'updateUser':
-                [$success, $message] = $UserManager->updateUser($username, $password);
+                [$success, $message] = $UserManager->updateUser($username, $password, $firstname, $lastname);
                 
                 $displayMessage = true;
 

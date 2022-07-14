@@ -38,14 +38,14 @@ class UserManager extends Database {
     Public method to create users if they don't exists.
     If they do, return false and set the error message.
     */
-    public function createUser($username, $password) {
+    public function createUser($username, $password, $firstname, $lastname) {
         if ( !$this->userExists($username) ) {
             // Encrypt password
             $password = password_hash($password, PASSWORD_DEFAULT);
 
             $query=<<<QUERY
-            INSERT INTO users (username, password)
-            VALUES ('$username', '$password')
+            INSERT INTO users (username, password, firstname, lastname)
+            VALUES ('$username', '$password', '$firstname', '$lastname')
             QUERY;
 
             $result = $this->query($query);
@@ -69,7 +69,7 @@ class UserManager extends Database {
             // Authenticate
             if ( $this->authUser($username, $password) ) {
                 $query=<<<QUERY
-                SELECT id, username FROM users WHERE username='$username'
+                SELECT id, username, firstname, lastname FROM users WHERE username='$username'
                 QUERY;
 
                 $user = $this->query($query)->fetch_all(MYSQLI_ASSOC);
@@ -151,7 +151,7 @@ class UserManager extends Database {
     */
     public function readAllUsers() {
         $query=<<<QUERY
-        SELECT id, username FROM users
+        SELECT id, username, firstname, lastname FROM users
         QUERY;
 
         $users = $this->query($query)->fetch_all(MYSQLI_ASSOC);
