@@ -37,10 +37,10 @@ export class NodeHandler {
     hideNode(timeout, node) {
         
         setTimeout(() => {
-            node.classList.add("scale-out");
+            node.classList.add("hide-element");
             setTimeout(() => {
                 node.remove();
-            }, 175)
+            }, 1000)
         }, timeout)
     }
 }

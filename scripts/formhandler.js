@@ -13,7 +13,7 @@ export class FormHandler {
         // Append form action from button
         formData.append('action', this.action);
 
-        fetch('/controller/controller.php', {
+        fetch('controller/controller.php', {
             method: 'POST',
             body: formData
         })

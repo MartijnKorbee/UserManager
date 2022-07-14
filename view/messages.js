@@ -6,8 +6,8 @@ export class Messages extends NodeHandler {
         super();
         this.message = message;
         this.succes = succes;
-        this.parentNode = this.getNode('div.form-row');
-        this.currentNode = () => this.getNode('div.message-row');
+        this.parentNode = this.getNode('div#main');
+        this.currentNode = () => this.getNode('div.message-box');
     }
 
     /* newNode
@@ -18,15 +18,17 @@ export class Messages extends NodeHandler {
         const  msgTemplate = document.createElement('template');
         // Insert innerHTML
         msgTemplate.innerHTML = `
-            <div class="row message-row scale-transition">
-            <div class="col s12">
-                <div class="card">
-                    <div class="card-content white-text" style="padding: 12px 24px;">
-                        <span class="message__text"></span>
+        <div class="container center-container message-box">
+            <div class="row message-box__row">
+                <div class="col s12">
+                    <div class="card message-box__card">
+                        <div class="card-content white-text" style="padding: 12px 24px;">
+                            <span class="message__text"></span>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
         `;
         
         // Clone template (creates the new node)

@@ -34,3 +34,26 @@ table > tbody > tr td#password {
 .bold-text {
     font-weight: bold;
 }
+
+.hide-element {
+    opacity: 0;
+}
+
+.message-box {
+    transform: translate(-50%, -280px);
+    transition: 0.2s ease-out;
+}
+
+.message-box__row {
+    display: flex;
+}
+
+.message-box__card {
+    max-width: 600px;
+    margin: auto;
+    padding: 0;
+}
+
+.user-table {
+    transform: translate(-50%, 215px);
+}
