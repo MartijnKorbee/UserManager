@@ -31,19 +31,29 @@
         <!-- MESSAGES -->
         <div class="container center-container">
             <div class="row" style="display: flex;">
-                <div class="col s12 teal lighten-5" style="margin: auto; padding: 20px; max-width: 600px;">
+                <div class="col s12 z-depth-2" style="margin: auto; padding: 20px; max-width: 600px;">
                     <!-- FORM -->
                     <div class="row form-row">
                         <form id="signup" class="col s12" method="POST">
                             <!-- FORM INPUT -->
                             <div class="row">
-                                <div class="input-field col s12">
+                                <div class="input-field col s6">
                                     <input type="text" maxlength="12" name="username" id="username" class="validate">
                                     <label for="username">Username</label>
                                 </div>
-                                <div class="input-field col s12">
+                                <div class="input-field col s6">
                                     <input type="password" maxlength="16" name="password" id="password" class="validate">
                                     <label for="password">Password</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input type="text" maxlength="100" name="firstname" id="firstname" class="validate">
+                                    <label for="firstname">First name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text" maxlength="100" name="lastname" id="lastname" class="validate">
+                                    <label for="password">Last name</label>
                                 </div>
                             </div>
                             <!-- END FORM INPUT -->

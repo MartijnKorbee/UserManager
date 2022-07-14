@@ -19,14 +19,14 @@ export class DisplayUsers extends NodeHandler {
         userTemplate.innerHTML = `
             <div class="container center-container user-table">
                 <div class="row user-table__row" style="display: flex;">
-                    <div class="col s12 teal lighten-5" style="margin: auto; padding: 0; max-width: 600px;">
+                    <div class="col s12 z-depth-2" style="margin: auto; padding: 0; max-width: 600px;">
                         <table class="centered">
-                            <thead class="teal lighten-3 white-text">
-                                <h5 class="bold" style="padding: 10px 20px;">USER DETAILS:</h5>
+                            <thead class="teal darken-3 white-text">
                                 <tr>
                                     <th>ID</th>
                                     <th>USERNAME</th>
-                                    <th>PASSWORD</th>
+                                    <th>FIRSTNAME</th>
+                                    <th>LASTNAME</th>
                                 </tr>
                             </thead>
                             <tbody id="table-body">
@@ -48,8 +48,9 @@ export class DisplayUsers extends NodeHandler {
             const userRow = `
             <tr>
                 <td>${user.id}</td>
-                <td>${user.username}</td>
-                <td id="password">${user.password}</td>
+                <td style="text-align:left;">${user.username}</td>
+                <td style="text-align:left;">${user.firstName}</td>
+                <td style="text-align:left;">${user.lastName}</td>
             </tr>
             `
         
