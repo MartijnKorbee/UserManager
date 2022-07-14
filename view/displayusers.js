@@ -19,7 +19,7 @@ export class DisplayUsers extends NodeHandler {
         userTemplate.innerHTML = `
             <div class="container center-container user-table">
                 <div class="row user-table__row" style="display: flex;">
-                    <div class="col s12 z-depth-2" style="margin: auto; padding: 0; max-width: 600px;">
+                    <div class="col s12 z-depth-2" style="margin:auto; padding:0; max-width:600px; max-height:250px; overflow-y:scroll;">
                         <table class="centered">
                             <thead class="teal darken-3 white-text">
                                 <tr>
