@@ -10,11 +10,11 @@ require_once '../modal/usermanager.php';
 try {
     $UserManager = new UserManager();
     
-    // Set connected -> Form enabled
+    // Set connected
     $connected = true;
     
 } catch (\Exception $error) {
-    // Set connected -> Form disabled
+    // Set connected
     $connected = false;
 
     $datetime = new \DateTime('NOW');
