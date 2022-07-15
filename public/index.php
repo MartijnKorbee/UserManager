@@ -5,7 +5,7 @@ if ( $_SERVER['REQUEST_URI'] == '/' ) {
 }
 
 if ( $_SERVER['REQUEST_URI'] == '/API' ) {
-    include('../controller/controller.php');
+    include('../API/controller/controller.php');
 }
 
 ?>
