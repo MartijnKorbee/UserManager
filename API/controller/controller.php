@@ -1,20 +1,20 @@
 <?php
 require_once '../vendor/autoload.php';
-$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '../../');
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '../../../');
 $dotenv->load();
 
-require_once '../modal/database.php';
-require_once '../modal/usermanager.php';
+require_once '../API/modal/database.php';
+require_once '../API/modal/usermanager.php';
 
 // Initiates DB connection and UserManager
 try {
     $UserManager = new UserManager();
     
-    // Set connected -> Form enabled
+    // Set connected
     $connected = true;
     
 } catch (\Exception $error) {
-    // Set connected -> Form disabled
+    // Set connected
     $connected = false;
 
     $datetime = new \DateTime('NOW');

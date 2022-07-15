@@ -1,5 +1,5 @@
-import { DisplayUsers } from "../view/displayusers.js";
-import { Messages } from "../view/messages.js";
+import { DisplayUsers } from "./displayusers.js";
+import { Messages } from "./messages.js";
 
 export class ViewController {
 

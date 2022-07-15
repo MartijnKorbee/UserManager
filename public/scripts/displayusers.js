@@ -1,4 +1,4 @@
-import { NodeHandler } from "../scripts/nodehandler.js";
+import { NodeHandler } from "./nodehandler.js";
 
 export class DisplayUsers extends NodeHandler {
 
