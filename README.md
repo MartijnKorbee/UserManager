@@ -6,4 +6,4 @@ Simple User Manager App to practice/learn PHP, OOP, MySQL and CRUD actions. Also
 - v3: Uses the JS Fetch API to send CRUD actions and fetch data
     - Messages and users display is rendered with VanillaJS using html templates
 - v4: New project folder structure
-    - Seperating the project in Public and API
+    - Separating the project in Public and API
