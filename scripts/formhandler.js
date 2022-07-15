@@ -22,7 +22,7 @@ export class FormHandler {
             // Call viewcontroller
             const Controller = new ViewController(data, this.action);
 
-            Controller.handleFormPost();
+            Controller.handleFormPost(this.form);
         })
     }
 }
