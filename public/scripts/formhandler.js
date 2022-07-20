@@ -13,16 +13,24 @@ export class FormHandler {
         // Append form action from button
         formData.append('action', this.action);
 
-        fetch('API', {
+        fetch('/API', {
             method: 'POST',
             body: formData
         })
-        .then(res => res.json())
+        .then(res => {
+            if ( !res.ok ) {
+                throw new Error(`${res.status} ${res.statusText}`);
+            }
+            return res.json();
+        })
         .then(data => {
             // Call viewcontroller
             const Controller = new ViewController(data, this.action);
 
             Controller.handleFormPost(this.form);
+        })
+        .catch(error => {
+            console.error(`Issue calling the API. ${error}`);
         })
     }
 }
