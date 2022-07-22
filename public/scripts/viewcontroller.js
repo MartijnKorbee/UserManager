@@ -8,26 +8,27 @@ export class ViewController {
     Controls the view.
     */
 
-    constructor(res, action) {
+    constructor(res, action, form) {
         this.action = action;
         this.res = res;
         this.succes = res.succes;
         this.displayMessage = res.displayMessage;
         this.message = res.message;
         this.users = (res.users) ? res.users : null;
+        this.form = form;
     }
 
     /*handleFormPost
     Handles the formpost and decides what to change in the view.
     */
-    handleFormPost(form) {
+    handleFormPost() {
         // Initiate view classes
         const FormLoader = new Loader();
         const Users = new DisplayUsers(this.users);
         const Message = new Messages(this.succes, this.message);
 
         // Disable form
-        this.disableForm(form);
+        this.toggleFormInput();
 
         // Delete user table
         if ( this.action != 'readAllUsers' ) {
@@ -44,17 +45,15 @@ export class ViewController {
                     // Wait and then display results
                     .then(() => {
                         // Reset form
-                        form.reset();
+                        this.form.reset();
                         
                         // Remove loader
                         FormLoader.removeLoader();
 
-                        // Enable form
-                        this.enableForm(form);
-
                         // Display message
                         if ( this.displayMessage ) {
-                            Message.insertMessage(3000);
+                            Message.insertMessage()
+                            .then(() => this.toggleFormInput());
                         }
 
                         // Display user table
@@ -67,8 +66,8 @@ export class ViewController {
             case false:
                 if ( this.displayMessage ) {
                     // Display message and enable form
-                    Message.insertMessage(2000)
-                        .then(() => this.enableForm(form));
+                    Message.insertMessage()
+                        .then(() => this.toggleFormInput());
                 }
                 break;
 
@@ -77,21 +76,16 @@ export class ViewController {
         }
     }
 
-    /** disableForm
-     * Disables form while loading res
+    /** toggleFormInput
+     * Enables or Disables form while loading res
      */
-    disableForm(form) {
-        for (let i=0; i<form.elements.length; i++) {
-            form.elements[i].disabled = true;
-        }
-    }
+    toggleFormInput() {
 
-    /** enableForm
-     * Disables form while loading res
-     */
-     enableForm(form) {
-        for (let i=0; i<form.elements.length; i++) {
-            form.elements[i].disabled = false;
+        // Get current state and reverse
+        let state = ( this.form.elements[0].disabled ) ? false : true;
+
+        for (let i=0; i<this.form.elements.length; i++) {
+            this.form.elements[i].disabled = state;
         }
     }
 }

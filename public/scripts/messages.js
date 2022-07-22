@@ -46,7 +46,7 @@ export class Messages extends NodeHandler {
     /* insertMessage
     Injects the message box into the DOM
      */
-    async insertMessage(messageTimeOut) {
+    async insertMessage(messageTimeOut=2000) {
         this.insertNode(this.parentNode, this.newNode(), this.currentNode(), 'first');
 
         await new Promise(resolve => setTimeout(resolve, messageTimeOut));
