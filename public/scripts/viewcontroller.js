@@ -25,60 +25,68 @@ export class ViewController {
         const FormLoader = new Loader();
         const Users = new DisplayUsers(this.users);
 
+        // Disable form
+        this.disableForm(form);
+
         // Delete user table
-        if ( this.action != 'readAllUsers' || !this.succes) {
+        if ( this.action != 'readAllUsers' ) {
             Users.deleteUserTable();
         }
 
-        // Display message
-        if ( this.displayMessage && !this.succes ) {
-            this.showMessage(this.succes, this.message);
-        }
+        switch (this.succes) {
+            case true:
+                // Show loader and disable form
+                FormLoader.insertLoader();
+                // Reset form
+                this.resetForm(form);
+                
+                // Set timeout to display loader before showing results
+                let loaderTimeOut = (Math.floor(Math.random() * 2500) + 500);
+                setTimeout(() => {
+
+                    // Hide loader
+                    FormLoader.hideLoader();
+
+                    // Display message
+                    if ( this.displayMessage == true ) {
+                        this.showMessage(this.succes, this.message);
+                    }
+
+                    // Enable form
+                    this.enableForm(form);
+
+                    // Display user table
+                    if ( this.action == 'readUser' || this.action == 'readAllUsers' ) {
+                        Users.insertUserTable(this.users);
+                    }
+                }, loaderTimeOut)       
+                break;
         
-        // If succes time out before showing results
-        if ( this.succes ) {
-
-            // Show loader and disable form
-            FormLoader.insertLoader();
-            // Disable form
-            this.disableForm(form);
-            // Reset form
-            this.resetForm(form);
-            
-            // Set timeout to display loader before showing results
-            let loaderTimeOut = (Math.floor(Math.random() * 2500) + 500);
-            setTimeout(() => {
-
-                // Hide loader
-                FormLoader.hideLoader();
-
-                // Display message
-                if ( this.displayMessage == true ) {
-                    this.showMessage(this.succes, this.message);
+            case false:
+                if ( this.displayMessage ) {
+                    // Display message
+                    this.showMessage(2000);
+                    // Enable form
+                    setTimeout(() => this.enableForm(form), 2000);
                 }
+                break;
 
-                // Enable form
-                this.enableForm(form);
-
-                // Display user table
-                if ( this.action == 'readUser' || this.action == 'readAllUsers' ) {
-                    Users.insertUserTable(this.users);
-                }
-            }, loaderTimeOut)
+            default:
+                break;
         }
-
     }
 
     /* showMessage
     Displays the succes or error message. 
     */
-    showMessage() {
+    showMessage(timeout) {
         // Create message object
         const Message = new Messages(this.succes, this.message);
         // Insert message
         Message.insertMessage();
+        
         // Hide
-        Message.hideMessage(3000);
+        Message.hideMessage(timeout);
     }
 
     /*resetForm

@@ -53,6 +53,6 @@ export class Messages extends NodeHandler {
     /* hideMessage
     */
     hideMessage(timeout) {
-        this.hideNode(timeout, this.currentNode());
+         this.hideNode(timeout, this.currentNode());
     }
 }

@@ -37,6 +37,7 @@ export class NodeHandler {
     hideNode(timeout, node) {
         setTimeout(() => {
             node.classList.add("hide-element");
+            
             setTimeout(() => {
                 node.remove();
             }, 175)
