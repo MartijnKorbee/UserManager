@@ -30,7 +30,7 @@ export class FormHandler {
             Controller.handleFormPost(this.form);
         })
         .catch(error => {
-            console.error(`Issue calling the API. ${error}`);
+            console.error(`Issue handling form post. ${error}`);
         })
     }
 }

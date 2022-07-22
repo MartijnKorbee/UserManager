@@ -25,14 +25,14 @@ export class ViewController {
         const FormLoader = new Loader();
         const Users = new DisplayUsers(this.users);
 
-        // Display message
-        if ( this.displayMessage == true ) {
-            this.showMessage(this.succes, this.message);
-        }
-
         // Delete user table
         if ( this.action != 'readAllUsers' || !this.succes) {
             Users.deleteUserTable();
+        }
+
+        // Display message
+        if ( this.displayMessage && !this.succes ) {
+            this.showMessage(this.succes, this.message);
         }
         
         // If succes time out before showing results
@@ -51,6 +51,11 @@ export class ViewController {
 
                 // Hide loader
                 FormLoader.hideLoader();
+
+                // Display message
+                if ( this.displayMessage == true ) {
+                    this.showMessage(this.succes, this.message);
+                }
 
                 // Enable form
                 this.enableForm(form);
