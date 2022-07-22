@@ -46,13 +46,11 @@ export class Messages extends NodeHandler {
     /* insertMessage
     Injects the message box into the DOM
      */
-    insertMessage() {
+    async insertMessage(messageTimeOut) {
         this.insertNode(this.parentNode, this.newNode(), this.currentNode(), 'first');
-    }
 
-    /* hideMessage
-    */
-    hideMessage(timeout) {
-         this.hideNode(timeout, this.currentNode());
+        await new Promise(resolve => setTimeout(resolve, messageTimeOut));
+
+        this.hideNode(this.currentNode());
     }
 }

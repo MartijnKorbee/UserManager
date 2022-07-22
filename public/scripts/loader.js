@@ -31,11 +31,19 @@ export class Loader extends NodeHandler {
         return newNode;        
     }
 
-    insertLoader() {
+    /** insertLoader
+     * Inserts loader and creates a promise
+     */
+    async insertLoader(loaderTimeOut) {
         this.insertNode(this.parentNode, this.newNode(), this.currentNode(), 'first');
+
+        await new Promise(resolve => setTimeout(resolve, loaderTimeOut));
     }
 
-    hideLoader() {
-        this.currentNode().style.display = 'none';
+    /**
+     * Remove loader
+     */
+    removeLoader() {
+        this.currentNode().remove();
     }
 }
