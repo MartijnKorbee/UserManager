@@ -59,6 +59,7 @@ export class ViewController {
                         // Display user table
                         if ( this.action == 'readUser' || this.action == 'readAllUsers' ) {
                             Users.insertUserTable(this.users);
+                            this.toggleFormInput();
                         }
                     });    
                 break;
