@@ -12,7 +12,7 @@ function addFormEventListener() {
             e.preventDefault();
     
             const FormCapture = new FormHandler(e.submitter.value, e.target);
-    
+            
             FormCapture.postData(e);
         })
     }

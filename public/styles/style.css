@@ -35,8 +35,8 @@ table > tbody > tr:nth-child(2n) {
 }
 
 .message-box {
+    display: absolute;
     transform: translate(-50%, -300px);
-    transition: 0.2s ease-out;
 }
 
 .message-box__row {

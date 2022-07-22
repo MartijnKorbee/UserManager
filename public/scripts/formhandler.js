@@ -6,7 +6,7 @@ export class FormHandler {
         this.action = action;
         this.form = form;
     }
-    
+
     postData() {
         // Create new FormData object
         const formData = new FormData(this.form);
@@ -23,9 +23,9 @@ export class FormHandler {
             }
             return res.json();
         })
-        .then(data => {
+        .then(res => {
             // Call viewcontroller
-            const Controller = new ViewController(data, this.action);
+            const Controller = new ViewController(res, this.action);
 
             Controller.handleFormPost(this.form);
         })
