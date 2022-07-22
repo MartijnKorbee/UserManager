@@ -7,3 +7,4 @@ Simple User Manager App to practice/learn PHP, OOP, MySQL and CRUD actions. Also
     - Messages and users display is rendered with VanillaJS using html templates
 - v4: New project folder structure
     - Separating the project in Public and API
+    - Added form loader mechanics
