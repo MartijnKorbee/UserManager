@@ -4,9 +4,9 @@ import { Loader } from "./loader.js";
 
 export class ViewController {
 
-    /*
-    Controls the view.
-    */
+    /**
+     * Controls the view.
+     */
 
     constructor(res, action, form) {
         this.action = action;
@@ -18,9 +18,9 @@ export class ViewController {
         this.form = form;
     }
 
-    /*handleFormPost
-    Handles the formpost and decides what to change in the view.
-    */
+    /** handleFormPost
+     * Handles the formpost and decides what to change in the view.
+     */
     handleFormPost() {
         // Initiate view classes
         const FormLoader = new Loader();
@@ -54,12 +54,13 @@ export class ViewController {
                         if ( this.displayMessage ) {
                             Message.insertMessage()
                             .then(() => this.toggleFormInput());
+                        } else {
+                            this.toggleFormInput();
                         }
 
                         // Display user table
                         if ( this.action == 'readUser' || this.action == 'readAllUsers' ) {
                             Users.insertUserTable(this.users);
-                            this.toggleFormInput();
                         }
                     });    
                 break;
