@@ -25,12 +25,12 @@ export class FormHandler {
         })
         .then(res => {
             // Call viewcontroller
-            const Controller = new ViewController(res, this.action);
+            const Controller = new ViewController(res, this.action, this.form);
 
-            Controller.handleFormPost(this.form);
+            Controller.handleFormPost();
         })
         .catch(error => {
-            console.error(`Issue calling the API. ${error}`);
+            console.error(`Issue handling form post. ${error}`);
         })
     }
 }

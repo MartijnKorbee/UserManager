@@ -34,12 +34,8 @@ export class NodeHandler {
     /* hideNode
     Hides node after timeout, timeout defaults to 0 to instantly hide the node.
     */
-    hideNode(timeout, node) {
-        setTimeout(() => {
-            node.classList.add("hide-element");
-            setTimeout(() => {
-                node.remove();
-            }, 175)
-        }, timeout)
+    hideNode(node) {
+        node.classList.add("hide-element");
+        setTimeout(() => node.remove(), 250);
     }
 }
